@@ -1,3 +1,6 @@
+Aquí tienes el archivo `README.md` actualizado, incluyendo una sección dedicada a **Google Cloud**, indicando que la aplicación está disponible en la nube:
+
+---
 
 # BDFI - Proyecto Base
 
@@ -42,7 +45,28 @@ docker-compose up -d
 
 ---
 
-## **Servicios Disponibles**
+## **Aplicación Disponible en Google Cloud**
+
+La aplicación está desplegada en Google Cloud y puedes acceder a la API Flask directamente desde la siguiente URL:
+
+### **URL de la API Flask**
+```bash
+http://34.55.124.237:5001/flights/delays/predict_kafka
+```
+![image](https://github.com/user-attachments/assets/e3b9a291-991a-4810-8b1b-e066e90d6aed)
+![image](https://github.com/user-attachments/assets/8dc1dc67-9ecb-4c49-919b-baddd72e318b)
+
+
+Prueba la funcionalidad de predicción directamente con el siguiente comando `curl` desde tu terminal:
+```bash
+curl http://34.55.124.237:5001/flights/delays/predict_kafka
+```
+
+---
+
+## **Servicios Disponibles Localmente**
+
+Si decides ejecutar el proyecto localmente, estos serán los servicios disponibles:
 
 ### Flask API
 La API Flask estará disponible en:
@@ -50,7 +74,7 @@ La API Flask estará disponible en:
 http://<IP_DEL_SERVIDOR>:5001
 ```
 
-Prueba la funcionalidad de predicción:
+Prueba la funcionalidad de predicción localmente con:
 ```bash
 curl http://<IP_DEL_SERVIDOR>:5001/flights/delays/predict_kafka
 ```
@@ -95,4 +119,3 @@ docker exec -it <nombre_o_id_del_contenedor> bash
 - `spark/`: Configuración para Spark.
 - `mongo/`: Configuración para MongoDB.
 
----
