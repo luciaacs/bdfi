@@ -1,6 +1,3 @@
-Aquí tienes el archivo `README.md` actualizado, incluyendo una sección dedicada a **Google Cloud**, indicando que la aplicación está disponible en la nube:
-
----
 
 # BDFI - Proyecto Base
 
