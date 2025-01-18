@@ -1,5 +1,5 @@
 
-# BDFI - Proyecto Base
+# Base de Datos Fundamentos y Infraestructuras
 
 Este proyecto implementa un sistema para manejar datos y flujos utilizando contenedores Docker, Kafka, Spark, Flask, MongoDB, y otras herramientas relacionadas.
 
