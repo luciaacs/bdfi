@@ -162,7 +162,7 @@ kubectl apply -f spark-worker-deployment.yaml
 kubectl apply -f spark-worker-service.yaml
 
 ```
-### Exponer un Servicio Localmente con Port Forward**
+### Exponer un Servicio Localmente con Port Forward
 
 Este comando permite redirigir el tráfico desde un puerto local hacia un servicio en Kubernetes. Es útil para acceder a un servicio dentro del clúster sin necesidad de exponerlo públicamente.
 
