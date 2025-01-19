@@ -116,3 +116,78 @@ docker exec -it <nombre_o_id_del_contenedor> bash
 - `spark/`: Configuración para Spark.
 - `mongo/`: Configuración para MongoDB.
 
+# **Instrucciones para Desplegar la Práctica en Kubernetes**
+
+### Acceder al directorio donde se encuentran los archivos YAML 
+```bash
+cd /k8
+```
+### Iniciar Minikube con Docker como driver
+```bash
+minikube start --driver=docker
+```
+### Verificar el estado de Minikube
+```bash
+minikube status
+```
+### Aplicar los archivos YAML desde el directorio actual
+Es recomendable aplicar los recursos YAML de uno en uno y en un orden específico para evitar errores relacionados con dependencias entre servicios. Sigue el siguiente orden recomendado: **zookeeper**, **kafka**, **flask**, **mongo**, **spark-master**, y finalmente **spark-worker**.
+
+```bash
+# Aplicar el Deployment y Service de Zookeeper
+kubectl apply -f zookeeper-deployment.yaml
+kubectl apply -f zookeeper-service.yaml
+
+# Aplicar el Deployment y Service de Kafka
+kubectl apply -f kafka-deployment.yaml
+kubectl apply -f kafka-service.yaml
+
+# Aplicar el Deployment y Service de Flask
+kubectl apply -f flask-deployment.yaml
+kubectl apply -f flask-service.yaml
+
+# Aplicar el Deployment y Service de MongoDB
+kubectl apply -f mongo-deployment.yaml
+kubectl apply -f mongo-service.yaml
+
+# Aplicar el Deployment de mongo-seed para importar datos en la base de datos MongoDB.
+kubectl apply -f mongo-seed-deployment.yaml
+
+# Aplicar el Deployment y Service de Spark Master
+kubectl apply -f spark-master-deployment.yaml
+kubectl apply -f spark-master-service.yaml
+
+# Aplicar el Deployment y Service de Spark Worker
+kubectl apply -f spark-worker-deployment.yaml
+kubectl apply -f spark-worker-service.yaml
+
+```
+### Exponer un Servicio Localmente con Port Forward**
+
+Este comando permite redirigir el tráfico desde un puerto local hacia un servicio en Kubernetes. Es útil para acceder a un servicio dentro del clúster sin necesidad de exponerlo públicamente.
+
+```bash
+kubectl port-forward svc/flask 5001:5001
+
+```
+
+### Verificar los recursos desplegados (Pods, Deployments, Services)
+```bash
+kubectl get pods,deployments,services
+```
+### Ver los logs de un Pod específico
+```bash
+kubectl logs <NOMBRE_DEL_POD>
+```
+### Eliminar todos los recursos desplegados
+```bash
+kubectl delete all --all
+```
+### Detener Minikube una vez finalizado
+```bash
+minikube stop
+```
+
+
+
+
